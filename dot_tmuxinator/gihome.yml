@@ -1,0 +1,23 @@
+# ~/.tmuxinator/gihome.yml
+
+name: gihome
+root: ~/src/getty/unisporkal
+
+windows:
+  - proxy-dynamo:
+      layout: even-vertical
+      panes:
+        - docker:
+          - giproxy-wfh
+        - dynamo:
+          - cd $HOME/src/getty/gi-local-dynamo
+          - bin/start | lolcat
+  - landing:
+      layout: even-horizontal
+      panes:
+        - landing-rails:
+          - landing
+          - gir
+        - landing-assets:
+          - landing
+          - giw

@@ -1,0 +1,23 @@
+# ~/.tmuxinator/cns.yml
+
+name: cns
+root: ~/src/getty/unisporkal/customer-notifications
+
+windows:
+  - cns:
+      layout: main-vertical
+      panes:
+        - vim:
+          - givim
+  - cns-server:
+      layout: even-horizontal
+      panes:
+        - cns:
+          - cns
+          - export AWS_PROFILE=local
+          - gicns
+  - term:
+      layout: main-vertical
+      panes:
+        - term-cns:
+          - cns
